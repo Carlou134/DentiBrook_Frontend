@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post-Especialidad</title>
+</head>
+<body>
+  <div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field>
+        <mat-label>Especialidad</mat-label>
+        <input matInput placeholder="Nombre de Especialidad" formControlName="nombre_especialidad"/>
+      </mat-form-field>
+
+      <br>
+      <button mat-raised-button color="primary">Insertar</button>
+  </form>
+    <button mat-raised-button color="warn">Cancelar</button>
+  </div>
+</body>
+</html>
