@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field>
+        <mat-label>Medicamento</mat-label>
+        <input matInput placeholder="Nombre" formControlName="nombre"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Forma</mat-label>
+        <input matInput placeholder="forma" formControlName="forma_farmaceutica"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Via</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let via_election of vias" [value]="via_election.value">
+            {{via_election.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Fecha de caducidad</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>precio</mat-label>
+        <input matInput placeholder="S/.10.0" formControlName="precio"/>
+      </mat-form-field>
+
+      <button mat-button color="warn">Warn</button>
+    </form>
+  </div>
+</body>
+</html>
