@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get-Medicamento</title>
+</head>
+<body>
+  <div><h2>Lista de Medicamentos</h2></div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.medicamento_id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="medicamento">
+      <th mat-header-cell *matHeaderCellDef> Medicamento </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="forma">
+      <th mat-header-cell *matHeaderCellDef> Forma </th>
+      <td mat-cell *matCellDef="let element"> {{element.forma_farmaceutica}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="via">
+      <th mat-header-cell *matHeaderCellDef> Via </th>
+      <td mat-cell *matCellDef="let element"> {{element.via}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="caducidad">
+      <th mat-header-cell *matHeaderCellDef> Fecha de caducidad </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha_caducidad}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let element"> S/. {{element.precio}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</body>
+</html>
