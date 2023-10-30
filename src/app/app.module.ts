@@ -17,6 +17,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { MedicamentoComponent } from './component/medicamento/medicamento.component';
 import { ListarMedicamentoComponent } from './component/medicamento/listar-medicamento/listar-medicamento.component';
 import { CreaeditaMedicamentoComponent } from './component/medicamento/creaedita-medicamento/creaedita-medicamento.component';
+import { ServicioComponent } from './component/servicio/servicio.component';
+import { ListarServicioComponent } from './component/servicio/listar-servicio/listar-servicio.component';
+import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { CreaeditaMedicamentoComponent } from './component/medicamento/creaedita
     CreaeditaEspecialidadComponent,
     MedicamentoComponent,
     ListarMedicamentoComponent,
-    CreaeditaMedicamentoComponent
+    CreaeditaMedicamentoComponent,
+    ServicioComponent,
+    ListarServicioComponent,
+    CreaeditaServicioComponent
   ],
   imports: [
     BrowserModule,
