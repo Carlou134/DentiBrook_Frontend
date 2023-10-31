@@ -2,27 +2,27 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
-import { Servicio } from '../model/servicio';
+import { Tipo_Pago } from '../model/tipo_pago';
 const base_url = environment.base
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServicioService {
-  private url = `${base_url}/servicios`;
-  private listaCambio = new Subject<Servicio[]>();
+export class TipoPagoService {
+  private url = `${base_url}/tipodepagos`;
+  private listaCambio = new Subject<Tipo_Pago[]>();
 
   constructor(private http:HttpClient) { }
 
   list(){
-    return this.http.get<Servicio[]>(this.url);
+    return this.http.get<Tipo_Pago[]>(this.url);
   }
 
-  insert(servicio: Servicio){
-    return this.http.post(this.url, servicio);
+  insert(tipoPago: Tipo_Pago){
+    return this.http.post(this.url, tipoPago);
   }
 
-  setlist(listaNueva: Servicio[]){
+  setlist(listaNueva: Tipo_Pago[]){
     this.listaCambio.next(listaNueva);
   }
 
@@ -30,9 +30,9 @@ export class ServicioService {
     return this.listaCambio.asObservable();
   }
 
-  listId(id: number) {return this.http.get<Servicio>(`${this.url}/${id}`);}
+  listId(id: number) {return this.http.get<Tipo_Pago>(`${this.url}/${id}`);}
 
-  update(s:Servicio) {return this.http.put(this.url, s);}
+  update(t:Tipo_Pago) {return this.http.put(this.url, t);}
 
   delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
 }

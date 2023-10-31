@@ -29,4 +29,10 @@ export class EspecialidadService {
   getlist(){
     return this.listaCambio.asObservable();
   }
+
+  listId(id: number) {return this.http.get<Especialidad>(`${this.url}/${id}`);}
+
+  update(e:Especialidad) {return this.http.put(this.url, e);}
+
+  delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
 }

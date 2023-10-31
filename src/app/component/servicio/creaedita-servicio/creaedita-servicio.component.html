@@ -1,1 +1,47 @@
-<p>creaedita-servicio works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicio post update</title>
+</head>
+<body>
+  <div class="container" style="text-align: center">
+    <h2>Registro de Servicios</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>idService</mat-label><input matInput placeholder="Id" formControlName="id" />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo</mat-label>
+        <input matInput placeholder="Tipo" formControlName="tipo_servicio"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('tipo_servicio')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Precio</mat-label>
+        <input matInput placeholder="Precio" formControlName="precio"/>
+        <mat-error
+          *ngIf="obtenerControlCampo('precio')?.errors?.['required']"
+        >
+          El precio es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/servicios">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+    </form>
+  </div>
+</body>
+</html>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>especialidad get</title>
+  <title>tipo pago get</title>
 </head>
 <body>
   <div class="container">
     <br>
-    <h2 style="text-align: center">Lista de Especialidades</h2>
-    <div style="text-align: right;"><button mat-raised-button color="primary" routerLink="/especialidad/nuevo">Nuevo</button>
+    <h2 style="text-align: center">Lista de tipos de pago</h2>
+    <div style="text-align: right;"><button mat-raised-button color="primary" routerLink="/tipopago/nuevo">Nuevo</button>
     </div>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
@@ -19,25 +19,36 @@
       <!-- Position Column -->
       <ng-container matColumnDef="codigo">
         <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.especialidad_id}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.tipo_pago_id}} </td>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Tipo </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre_especialidad}} </td>
+      <ng-container matColumnDef="metodo">
+        <th mat-header-cell *matHeaderCellDef> Metodo de pago </th>
+        <td mat-cell *matCellDef="let element"> {{element.metodo_de_pago}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="cuotas">
+        <th mat-header-cell *matHeaderCellDef> Cuotas </th>
+        <td mat-cell *matCellDef="let element"> {{element.cuotas}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="porcentaje">
+        <th mat-header-cell *matHeaderCellDef> Porcentaje de descuento </th>
+        <td mat-cell *matCellDef="let element"> {{element.porcentaje_descuento}} </td>
       </ng-container>
 
     <ng-container matColumnDef="accion01">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" [routerLink]="['ediciones', element.especialidad_id]">Actualizar</button></td>
+        <button mat-raised-button color="primary" [routerLink]="['ediciones', element.tipo_pago_id]">Actualizar</button></td>
       </ng-container>
 
     <ng-container matColumnDef="accion02">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn" (click)="eliminar(element.especialidad_id)">Eliminar</button></td>
+        <button mat-raised-button color="warn" (click)="eliminar(element.tipo_pago_id)">Eliminar</button></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

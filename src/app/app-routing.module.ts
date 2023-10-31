@@ -4,6 +4,10 @@ import { EspecialidadComponent } from './component/especialidad/especialidad.com
 import { CreaeditaEspecialidadComponent } from './component/especialidad/creaedita-especialidad/creaedita-especialidad.component';
 import { MedicamentoComponent } from './component/medicamento/medicamento.component';
 import { CreaeditaMedicamentoComponent } from './component/medicamento/creaedita-medicamento/creaedita-medicamento.component';
+import { ServicioComponent } from './component/servicio/servicio.component';
+import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
+import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
+import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
 
 const routes: Routes = [
   {
@@ -11,7 +15,10 @@ const routes: Routes = [
     children: [
       {
         path: 'nuevo', component: CreaeditaEspecialidadComponent
-      }
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaEspecialidadComponent
+      },
     ]
   },
   {
@@ -19,6 +26,29 @@ const routes: Routes = [
     children: [
       {
         path: 'nuevo', component: CreaeditaMedicamentoComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaMedicamentoComponent
+      }
+    ]
+  },
+  {
+    path: 'servicios', component: ServicioComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaServicioComponent
+      },
+      { path: 'ediciones/:id', component: CreaeditaServicioComponent },
+    ]
+  },
+  {
+    path: 'tipopago', component: TipoPagoComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaTipoPagoComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaTipoPagoComponent
       }
     ]
   }
