@@ -29,6 +29,9 @@ import { CreaeditaMedicamentoComponent } from './component/medicamento/creaedita
 import { ServicioComponent } from './component/servicio/servicio.component';
 import { ListarServicioComponent } from './component/servicio/listar-servicio/listar-servicio.component';
 import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
+import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
+import { ListarTipoPagoComponent } from './component/tipo-pago/listar-tipo-pago/listar-tipo-pago.component';
+import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { CreaeditaServicioComponent } from './component/servicio/creaedita-servi
     CreaeditaMedicamentoComponent,
     ServicioComponent,
     ListarServicioComponent,
-    CreaeditaServicioComponent
+    CreaeditaServicioComponent,
+    TipoPagoComponent,
+    ListarTipoPagoComponent,
+    CreaeditaTipoPagoComponent,
   ],
   imports: [
     BrowserModule,

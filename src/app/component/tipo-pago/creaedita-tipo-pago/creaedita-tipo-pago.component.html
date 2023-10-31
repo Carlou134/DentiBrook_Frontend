@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TipoPago post update</title>
+</head>
+<body>
+  <div class="container" style="text-align: center">
+    <h2>Registro de Tipos de Pago</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>idTipoPago</mat-label><input matInput placeholder="Id" formControlName="tipo_pago_id" />
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Metodo de pago</mat-label>
+        <mat-select formControlName="metodo_de_pago">
+          <mat-option *ngFor="let t of tipos" [value]="t.value">
+            {{t.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('metodo_de_pago')?.errors?.['required']">
+          La forma farmaceutica es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Cuotas</mat-label>
+        <input matInput placeholder="Cuotas" formControlName="cuotas"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('cuotas')?.errors?.['required']"
+          >
+            Definir las cuotas son obligatorias
+          </mat-error>
+      </mat-form-field>
+
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>% Descuento</mat-label>
+        <input matInput placeholder="Descuento" formControlName="porcentaje_descuento"/>
+        <mat-error
+          *ngIf="obtenerControlCampo('porcentaje_descuento')?.errors?.['required']"
+        >
+          El porcentaje de descuento es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/tipopago">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+    </form>
+  </div>
+</body>
+</html>

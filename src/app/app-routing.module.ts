@@ -6,6 +6,8 @@ import { MedicamentoComponent } from './component/medicamento/medicamento.compon
 import { CreaeditaMedicamentoComponent } from './component/medicamento/creaedita-medicamento/creaedita-medicamento.component';
 import { ServicioComponent } from './component/servicio/servicio.component';
 import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
+import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
+import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,17 @@ const routes: Routes = [
         path: 'nuevo', component: CreaeditaServicioComponent
       },
       { path: 'ediciones/:id', component: CreaeditaServicioComponent },
+    ]
+  },
+  {
+    path: 'tipopago', component: TipoPagoComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaTipoPagoComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaTipoPagoComponent
+      }
     ]
   }
 ];
