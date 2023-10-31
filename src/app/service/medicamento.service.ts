@@ -29,4 +29,10 @@ export class MedicamentoService {
   getlist(){
     return this.listaCambio.asObservable();
   }
+
+  listId(id: number) {return this.http.get<Medicamento>(`${this.url}/${id}`);}
+
+  update(m:Medicamento) {return this.http.put(this.url, m);}
+
+  delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
 }

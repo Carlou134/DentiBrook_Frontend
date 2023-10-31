@@ -3,20 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post-Especialidad</title>
+  <title>Especialidad post update</title>
 </head>
 <body>
-  <div>
-    <form [formGroup]="form" (submit)="aceptar()">
-      <mat-form-field>
-        <mat-label>Especialidad</mat-label>
-        <input matInput placeholder="Nombre de Especialidad" formControlName="nombre_especialidad"/>
+  <div class="container" style="text-align: center">
+    <h2>Registro de Especialidad</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>idEspecialidad</mat-label><input matInput placeholder="Id" formControlName="especialidad_id" />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" formControlName="nombre_especialidad"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('nombre_especialidad')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
       </mat-form-field>
 
       <br>
-      <button mat-raised-button color="primary">Insertar</button>
-  </form>
-    <button mat-raised-button color="warn">Cancelar</button>
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/especialidad">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+    </form>
   </div>
 </body>
 </html>
