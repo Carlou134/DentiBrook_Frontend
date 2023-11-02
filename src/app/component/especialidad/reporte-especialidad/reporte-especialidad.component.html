@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscar Especialidad</title>
+  </head>
+  <body>
+    <div><h2 style="text-align: center">Búsqueda de especialidades</h2></div>
+    <div [formGroup]="nombreForm" class="container">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" formControlName="nombreEspecialidad"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('nombreEspecialidad')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+      </mat-form-field>
+      <button (click)="buscar()" mat-raised-button color="warn">Buscar</button>
+    </div>
+
+    <div class="container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.especialidad_id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Tipo </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombreEspecialidad}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+    </div>
+    <div class="container">
+        <!-- ... tu código existente ... -->
+        <div *ngIf="mensaje" style="color: red; margin-top: 10px;">{{ mensaje }}</div>
+      </div>
+
+  </body>
+</html>

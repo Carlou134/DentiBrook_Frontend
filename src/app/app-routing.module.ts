@@ -8,6 +8,7 @@ import { ServicioComponent } from './component/servicio/servicio.component';
 import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
 import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
 import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
+import { ReporteEspecialidadComponent } from './component/especialidad/reporte-especialidad/reporte-especialidad.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
       {
         path: 'ediciones/:id', component: CreaeditaEspecialidadComponent
       },
+      {
+        path: 'reporte', component: ReporteEspecialidadComponent
+      }
     ]
   },
   {

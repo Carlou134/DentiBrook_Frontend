@@ -1,4 +1,4 @@
 export class Especialidad{
   especialidad_id: number = 0;
-  nombre_especialidad: string = "";
+  nombreEspecialidad: string = "";
 }
