@@ -2,10 +2,22 @@
   <mat-toolbar color="primary">
     <span>Menu</span>
     <span class="example-spacer"></span>
-    <button mat-button routerLink="/especialidad">Especialidad</button>
-    <button mat-button routerLink="/medicamento">Medicamento</button>
-    <button mat-button routerLink="/servicios">Servicios</button>
-    <button mat-button routerLink="/tipopago">tipos de Pago</button>
+
+    <button mat-icon-button routerLink="/especialidad">
+      <mat-icon>work</mat-icon>
+    </button>
+
+    <button mat-icon-button routerLink="/medicamento">
+      <mat-icon>favorite</mat-icon>
+    </button>
+
+    <button mat-icon-button routerLink="/servicios">
+      <mat-icon>supervisor_account</mat-icon>
+    </button>
+
+    <button mat-icon-button class="example-icon favorite-icon" routerLink="/tipopago">
+      <mat-icon>payment</mat-icon>
+    </button>
   </mat-toolbar>
 </p>
 <router-outlet></router-outlet>
