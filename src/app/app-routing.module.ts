@@ -9,6 +9,7 @@ import { CreaeditaServicioComponent } from './component/servicio/creaedita-servi
 import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
 import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
 import { ReporteEspecialidadComponent } from './component/especialidad/reporte-especialidad/reporte-especialidad.component';
+import { ReporteMedicamentoComponent } from './component/medicamento/reporte-medicamento/reporte-medicamento.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: CreaeditaMedicamentoComponent
+      },
+      {
+        path: 'reporte', component: ReporteMedicamentoComponent
       }
     ]
   },
