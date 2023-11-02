@@ -16,12 +16,12 @@
       <br>
       <mat-form-field class="example-full-width">
         <mat-label>Metodo de pago</mat-label>
-        <mat-select formControlName="metodo_de_pago">
+        <mat-select formControlName="metodoDePago">
           <mat-option *ngFor="let t of tipos" [value]="t.value">
             {{t.viewValue}}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="obtenerControlCampo('metodo_de_pago')?.errors?.['required']">
+        <mat-error *ngIf="obtenerControlCampo('metodoDePago')?.errors?.['required']">
           La forma farmaceutica es obligatoria.
         </mat-error>
       </mat-form-field>
