@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { Servicio } from '../model/servicio';
@@ -35,4 +35,8 @@ export class ServicioService {
   update(s:Servicio) {return this.http.put(this.url, s);}
 
   delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
+
+  buscar(precio: string): Observable<Servicio[]> {
+    return this.http.post<Servicio[]>(`${this.url}/buscar`, { precio: precio });
+  }
 }

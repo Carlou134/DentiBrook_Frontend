@@ -10,6 +10,7 @@ import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
 import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
 import { ReporteEspecialidadComponent } from './component/especialidad/reporte-especialidad/reporte-especialidad.component';
 import { ReporteMedicamentoComponent } from './component/medicamento/reporte-medicamento/reporte-medicamento.component';
+import { ReporteServicioComponent } from './component/servicio/reporte-servicio/reporte-servicio.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,12 @@ const routes: Routes = [
       {
         path: 'nuevo', component: CreaeditaServicioComponent
       },
-      { path: 'ediciones/:id', component: CreaeditaServicioComponent },
+      {
+        path: 'ediciones/:id', component: CreaeditaServicioComponent
+      },
+      {
+        path: 'reporte', component: ReporteServicioComponent
+      }
     ]
   },
   {

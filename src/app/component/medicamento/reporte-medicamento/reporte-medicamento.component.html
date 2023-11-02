@@ -9,12 +9,12 @@
     <div><h2 style="text-align: center">Búsqueda de medicamentos</h2></div>
     <div [formGroup]="viaForm" class="container">
       <mat-form-field class="example-full-width">
-        <mat-label>Nombre</mat-label>
+        <mat-label>Via</mat-label>
         <input matInput placeholder="Nombre" formControlName="via"/>
         <mat-error
             *ngIf="obtenerControlCampo('via')?.errors?.['required']"
           >
-            El nombre es obligatorio.
+            La via es obligatoria.
           </mat-error>
       </mat-form-field>
       <button (click)="buscar()" mat-raised-button color="warn">Buscar</button>
