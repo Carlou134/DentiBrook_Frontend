@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { Tipo_Pago } from '../model/tipo_pago';
@@ -35,4 +35,8 @@ export class TipoPagoService {
   update(t:Tipo_Pago) {return this.http.put(this.url, t);}
 
   delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
+
+  buscar(metodoDePago: string): Observable<Tipo_Pago[]> {
+    return this.http.post<Tipo_Pago[]>(`${this.url}/buscar`, { metodoDePago: metodoDePago });
+  }
 }

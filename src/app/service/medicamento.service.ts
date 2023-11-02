@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Medicamento } from '../model/medicamento';
 const base_url = environment.base;
@@ -35,4 +35,8 @@ export class MedicamentoService {
   update(m:Medicamento) {return this.http.put(this.url, m);}
 
   delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
+
+  buscar(via: string): Observable<Medicamento[]> {
+    return this.http.post<Medicamento[]>(`${this.url}/buscar`, { via: via });
+  }
 }

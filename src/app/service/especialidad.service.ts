@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Especialidad } from '../model/especialidad';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 const base_url = environment.base;
 
@@ -35,4 +35,8 @@ export class EspecialidadService {
   update(e:Especialidad) {return this.http.put(this.url, e);}
 
   delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
+
+  buscar(nombreEspecialidad: string): Observable<Especialidad[]> {
+    return this.http.post<Especialidad[]>(`${this.url}/buscar`, { nombreEspecialidad: nombreEspecialidad });
+  }
 }

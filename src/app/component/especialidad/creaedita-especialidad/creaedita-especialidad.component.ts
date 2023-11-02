@@ -30,7 +30,7 @@ export class CreaeditaEspecialidadComponent implements OnInit {
 
     this.form=this.formBuilder.group({
       especialidad_id: ['',],
-      nombre_especialidad:['',Validators.required],
+      nombreEspecialidad:['',Validators.required],
     })
   }
 
@@ -39,7 +39,7 @@ export class CreaeditaEspecialidadComponent implements OnInit {
   aceptar():void{
     if(this.form.valid){
       this.especialidad.especialidad_id = this.form.value.especialidad_id;
-      this.especialidad.nombre_especialidad=this.form.value.nombre_especialidad;
+      this.especialidad.nombreEspecialidad=this.form.value.nombreEspecialidad;
       if(this.edicion){
         this.eS.update(this.especialidad).subscribe(() => {
           this.eS.list().subscribe((data) => {
@@ -73,7 +73,7 @@ export class CreaeditaEspecialidadComponent implements OnInit {
       this.eS.listId(this.id).subscribe((data) =>
       {this.form = new FormGroup({
         especialidad_id: new FormControl(data.especialidad_id),
-        nombre_especialidad: new FormControl(data.nombre_especialidad),
+        nombreEspecialidad: new FormControl(data.nombreEspecialidad),
         });
       });
     }

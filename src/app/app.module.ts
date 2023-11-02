@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
@@ -20,8 +19,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatDividerModule} from '@angular/material/divider';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MedicamentoComponent } from './component/medicamento/medicamento.component';
 import { ListarMedicamentoComponent } from './component/medicamento/listar-medicamento/listar-medicamento.component';
@@ -32,6 +31,10 @@ import { CreaeditaServicioComponent } from './component/servicio/creaedita-servi
 import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
 import { ListarTipoPagoComponent } from './component/tipo-pago/listar-tipo-pago/listar-tipo-pago.component';
 import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
+import { ReporteEspecialidadComponent } from './component/especialidad/reporte-especialidad/reporte-especialidad.component';
+import { ReporteMedicamentoComponent } from './component/medicamento/reporte-medicamento/reporte-medicamento.component';
+import { ReporteServicioComponent } from './component/servicio/reporte-servicio/reporte-servicio.component';
+import { ReporteTipoPagoComponent } from './component/tipo-pago/reporte-tipo-pago/reporte-tipo-pago.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,10 @@ import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo
     TipoPagoComponent,
     ListarTipoPagoComponent,
     CreaeditaTipoPagoComponent,
+    ReporteEspecialidadComponent,
+    ReporteMedicamentoComponent,
+    ReporteServicioComponent,
+    ReporteTipoPagoComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +76,8 @@ import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo
     MatMenuModule,
     MatIconModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

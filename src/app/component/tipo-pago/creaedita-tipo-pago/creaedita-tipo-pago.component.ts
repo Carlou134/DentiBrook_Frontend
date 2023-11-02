@@ -34,7 +34,7 @@ export class CreaeditaTipoPagoComponent implements OnInit {
 
     this.form=this.formBuilder.group({
       tipo_pago_id: ['',],
-      metodo_de_pago:['',Validators.required],
+      metodoDePago:['',Validators.required],
       cuotas:['',Validators.required],
       porcentaje_descuento:['',Validators.required]
     })
@@ -43,7 +43,7 @@ export class CreaeditaTipoPagoComponent implements OnInit {
   aceptar():void{
     if(this.form.valid){
       this.tipoPago.tipo_pago_id = this.form.value.tipo_pago_id;
-      this.tipoPago.metodo_de_pago=this.form.value.metodo_de_pago;
+      this.tipoPago.metodoDePago=this.form.value.metodoDePago;
       this.tipoPago.cuotas=this.form.value.cuotas;
       this.tipoPago.porcentaje_descuento=this.form.value.porcentaje_descuento;
       if(this.edicion){
@@ -79,7 +79,7 @@ export class CreaeditaTipoPagoComponent implements OnInit {
       this.tS.listId(this.id).subscribe((data) =>
       {this.form = new FormGroup({
       tipo_pago_id: new FormControl(data.tipo_pago_id),
-      metodo_de_pago: new FormControl(data.metodo_de_pago),
+      metodoDePago: new FormControl(data.metodoDePago),
       cuotas: new FormControl(data.cuotas),
       porcentaje_descuento: new FormControl(data.porcentaje_descuento),
         });

@@ -2,6 +2,14 @@ table {
   width: 100%;
 }
 
+.funcionality{
+  background-color: #78CAD2;
+}
+
+.delete{
+  background-color: gray;
+}
+
 button:hover {
   background-color: green;
 }

@@ -8,6 +8,10 @@ import { ServicioComponent } from './component/servicio/servicio.component';
 import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
 import { TipoPagoComponent } from './component/tipo-pago/tipo-pago.component';
 import { CreaeditaTipoPagoComponent } from './component/tipo-pago/creaedita-tipo-pago/creaedita-tipo-pago.component';
+import { ReporteEspecialidadComponent } from './component/especialidad/reporte-especialidad/reporte-especialidad.component';
+import { ReporteMedicamentoComponent } from './component/medicamento/reporte-medicamento/reporte-medicamento.component';
+import { ReporteServicioComponent } from './component/servicio/reporte-servicio/reporte-servicio.component';
+import { ReporteTipoPagoComponent } from './component/tipo-pago/reporte-tipo-pago/reporte-tipo-pago.component';
 
 const routes: Routes = [
   {
@@ -19,6 +23,9 @@ const routes: Routes = [
       {
         path: 'ediciones/:id', component: CreaeditaEspecialidadComponent
       },
+      {
+        path: 'reporte', component: ReporteEspecialidadComponent
+      }
     ]
   },
   {
@@ -29,6 +36,9 @@ const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: CreaeditaMedicamentoComponent
+      },
+      {
+        path: 'reporte', component: ReporteMedicamentoComponent
       }
     ]
   },
@@ -38,7 +48,12 @@ const routes: Routes = [
       {
         path: 'nuevo', component: CreaeditaServicioComponent
       },
-      { path: 'ediciones/:id', component: CreaeditaServicioComponent },
+      {
+        path: 'ediciones/:id', component: CreaeditaServicioComponent
+      },
+      {
+        path: 'reporte', component: ReporteServicioComponent
+      }
     ]
   },
   {
@@ -49,6 +64,9 @@ const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: CreaeditaTipoPagoComponent
+      },
+      {
+        path: 'reporte', component: ReporteTipoPagoComponent
       }
     ]
   }

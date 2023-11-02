@@ -16,17 +16,17 @@
       <br />
       <mat-form-field class="example-full-width">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre" formControlName="nombre_especialidad"/>
+        <input matInput placeholder="Nombre" formControlName="nombreEspecialidad"/>
         <mat-error
-            *ngIf="obtenerControlCampo('nombre_especialidad')?.errors?.['required']"
+            *ngIf="obtenerControlCampo('nombreEspecialidad')?.errors?.['required']"
           >
             El nombre es obligatorio.
           </mat-error>
       </mat-form-field>
 
       <br>
-        <button mat-raised-button color="primary">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/especialidad">
+        <button mat-raised-button color="primary" class="accept">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/especialidad" class="cancel">
           Cancelar
         </button>
         <p>{{ mensaje }}</p>

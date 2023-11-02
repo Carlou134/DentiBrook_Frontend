@@ -7,6 +7,14 @@ mat-form-field {
   width: 70%;
 }
 
+.accept{
+  background-color: #78CAD2;
+}
+
+.cancel{
+  background-color: gray;
+}
+
 button:hover {
   background-color: green;
 }
