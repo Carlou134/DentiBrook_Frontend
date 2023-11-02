@@ -14,6 +14,7 @@
     <mat-form-field>
       <input matInput (keyup)=filter($event) placeholder="buscar"/>
     </mat-form-field>
+    <button mat-raised-button color="primary" routerLink="/especialidad/reporte" class="funcionality">Reportes</button>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
