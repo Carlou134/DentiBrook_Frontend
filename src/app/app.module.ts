@@ -35,6 +35,12 @@ import { ReporteEspecialidadComponent } from './component/especialidad/reporte-e
 import { ReporteMedicamentoComponent } from './component/medicamento/reporte-medicamento/reporte-medicamento.component';
 import { ReporteServicioComponent } from './component/servicio/reporte-servicio/reporte-servicio.component';
 import { ReporteTipoPagoComponent } from './component/tipo-pago/reporte-tipo-pago/reporte-tipo-pago.component';
+import { UsersComponent } from './component/users/users.component';
+import { ListarUsersComponent } from './component/users/listar-users/listar-users.component';
+import { CreaeditaUsersComponent } from './component/users/creaedita-users/creaedita-users.component';
+import { RolesComponent } from './component/roles/roles.component';
+import { ListarRolesComponent } from './component/roles/listar-roles/listar-roles.component';
+import { CreaeditaRolesComponent } from './component/roles/creaedita-roles/creaedita-roles.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +61,12 @@ import { ReporteTipoPagoComponent } from './component/tipo-pago/reporte-tipo-pag
     ReporteMedicamentoComponent,
     ReporteServicioComponent,
     ReporteTipoPagoComponent,
+    UsersComponent,
+    ListarUsersComponent,
+    CreaeditaUsersComponent,
+    RolesComponent,
+    ListarRolesComponent,
+    CreaeditaRolesComponent,
   ],
   imports: [
     BrowserModule,
