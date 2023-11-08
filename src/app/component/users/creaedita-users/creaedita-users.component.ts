@@ -98,7 +98,7 @@ export class CreaeditaUsersComponent implements OnInit {
           })
         });
       }
-      this.router.navigate(['users']);
+      this.router.navigate(['/components/users']);
     }
     else {
       this.mensaje = 'Complete todos los campos, revise!!'

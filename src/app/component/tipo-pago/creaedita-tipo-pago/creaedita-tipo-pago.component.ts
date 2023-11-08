@@ -59,7 +59,7 @@ export class CreaeditaTipoPagoComponent implements OnInit {
           })
         });
       }
-      this.router.navigate(['tipopago']);
+      this.router.navigate(['/components/tipopago']);
     }
     else {
       this.mensaje = 'Complete todos los campos, revise!!'

@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MedicamentoComponent } from './component/medicamento/medicamento.component';
 import { ListarMedicamentoComponent } from './component/medicamento/listar-medicamento/listar-medicamento.component';
@@ -89,7 +90,8 @@ import { CreaeditaRolesComponent } from './component/roles/creaedita-roles/creae
     MatIconModule,
     MatDividerModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
