@@ -9,12 +9,12 @@
   <div class="container">
     <br>
     <h2 style="text-align: center">Lista de tipos de pago</h2>
-    <div style="text-align: right;"><button mat-raised-button color="primary" routerLink="/tipopago/nuevo" class="funcionality">Nuevo</button>
+    <div style="text-align: right;"><button mat-raised-button color="primary" routerLink="/components/tipopago/nuevo" class="funcionality">Nuevo</button>
     </div>
     <mat-form-field>
       <input matInput (keyup)=filter($event) placeholder="buscar"/>
     </mat-form-field>
-    <button mat-raised-button color="primary" routerLink="/tipopago/reporte" class="funcionality">Reportes</button>
+    <button mat-raised-button color="primary" routerLink="/components/tipopago/reporte" class="funcionality">Reportes</button>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.

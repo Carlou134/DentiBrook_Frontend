@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Especialidad } from '../model/especialidad';
 import { Observable, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 const base_url = environment.base;
 
 @Injectable({
@@ -15,11 +15,23 @@ export class EspecialidadService {
   constructor(private http:HttpClient) { }
 
   list(){
-    return this.http.get<Especialidad[]>(this.url);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Especialidad[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   insert(especialidad:Especialidad){
-    return this.http.post(this.url, especialidad);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post(this.url, especialidad, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   setlist(listaNueva:Especialidad[]){
@@ -30,13 +42,47 @@ export class EspecialidadService {
     return this.listaCambio.asObservable();
   }
 
-  listId(id: number) {return this.http.get<Especialidad>(`${this.url}/${id}`);}
+  listId(id: number) {
+    let token = sessionStorage.getItem('token');
 
-  update(e:Especialidad) {return this.http.put(this.url, e);}
+    return this.http.get<Especialidad>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
 
-  delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
+  update(e:Especialidad) {
+    let token = sessionStorage.getItem('token');
+
+    return this.http.put(this.url, e, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  delete(id: number) {
+    let token = sessionStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
 
   buscar(nombreEspecialidad: string): Observable<Especialidad[]> {
-    return this.http.post<Especialidad[]>(`${this.url}/buscar`, { nombreEspecialidad: nombreEspecialidad });
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post<Especialidad[]>(
+      `${this.url}/buscar`,
+      { nombreEspecialidad: nombreEspecialidad },
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      }
+      );
   }
 }

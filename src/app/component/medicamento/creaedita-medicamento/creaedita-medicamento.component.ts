@@ -88,7 +88,7 @@ export class CreaeditaMedicamentoComponent implements OnInit{
           })
         });
       }
-      this.router.navigate(['medicamento']);
+      this.router.navigate(['/components/medicamento']);
     }
     else {
       this.mensaje = 'Complete todos los campos, revise!!'

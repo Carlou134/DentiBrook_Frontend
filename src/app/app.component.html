@@ -1,27 +1,43 @@
 <p>
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary" *ngIf="verificar()">
     <span>Menu</span>
     <span class="example-spacer"></span>
 
-    <button mat-icon-button routerLink="/especialidad">
+    <button mat-icon-button routerLink="/components/especialidad" *ngIf="role == 'ODONTOLOGO'">
       <mat-icon>work</mat-icon>
     </button>
 
-    <button mat-icon-button routerLink="/medicamento">
+    <button mat-icon-button routerLink="/components/medicamento">
       <mat-icon>favorite</mat-icon>
     </button>
 
-    <button mat-icon-button routerLink="/servicios">
+    <button mat-icon-button routerLink="/components/servicios">
       <mat-icon>supervisor_account</mat-icon>
     </button>
 
-    <button mat-icon-button class="example-icon favorite-icon" routerLink="/tipopago">
+    <button mat-icon-button class="example-icon favorite-icon" routerLink="/components/tipopago">
       <mat-icon>payment</mat-icon>
     </button>
 
-    <button mat-icon-button class="example-icon favorite-icon" routerLink="/users">
+    <button mat-icon-button class="example-icon favorite-icon" routerLink="/components/users" *ngIf="role == 'ODONTOLOGO'">
       <mat-icon>person</mat-icon>
     </button>
+
+    <button mat-button [matMenuTriggerFor]="menuSalir">Salir</button>
   </mat-toolbar>
+
+
+
+  <mat-menu #menuSalir="matMenu">
+    <button mat-menu-item routerLink="/login" (click)="cerrar()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+    <button mat-menu-item>
+      Rol:
+      <span>{{ role }}</span>
+    </button>
+    <!-- Agrega más elementos de menú si es necesario -->
+  </mat-menu>
 </p>
 <router-outlet></router-outlet>

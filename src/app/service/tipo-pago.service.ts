@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { Tipo_Pago } from '../model/tipo_pago';
 const base_url = environment.base
@@ -15,11 +15,23 @@ export class TipoPagoService {
   constructor(private http:HttpClient) { }
 
   list(){
-    return this.http.get<Tipo_Pago[]>(this.url);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Tipo_Pago[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   insert(tipoPago: Tipo_Pago){
-    return this.http.post(this.url, tipoPago);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post(this.url, tipoPago, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   setlist(listaNueva: Tipo_Pago[]){
@@ -30,13 +42,44 @@ export class TipoPagoService {
     return this.listaCambio.asObservable();
   }
 
-  listId(id: number) {return this.http.get<Tipo_Pago>(`${this.url}/${id}`);}
+  listId(id: number) {
+    let token = sessionStorage.getItem('token');
 
-  update(t:Tipo_Pago) {return this.http.put(this.url, t);}
+    return this.http.get<Tipo_Pago>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
 
-  delete(id: number) {return this.http.delete(`${this.url}/${id}`);}
+  update(t:Tipo_Pago) {
+    let token = sessionStorage.getItem('token');
+
+    return this.http.put(this.url, t, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  delete(id: number) {
+    let token = sessionStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
 
   buscar(metodoDePago: string): Observable<Tipo_Pago[]> {
-    return this.http.post<Tipo_Pago[]>(`${this.url}/buscar`, { metodoDePago: metodoDePago });
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post<Tipo_Pago[]>(`${this.url}/buscar`, { metodoDePago: metodoDePago },
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      });
   }
 }
