@@ -20,6 +20,12 @@ import { CreaeditaMedicamentoComponent } from './component/medicamento/creaedita
 import { ServicioComponent } from './component/servicio/servicio.component';
 import { ListarServicioComponent } from './component/servicio/listar-servicio/listar-servicio.component';
 import { CreaeditaServicioComponent } from './component/servicio/creaedita-servicio/creaedita-servicio.component';
+import { HerramientaComponent } from './herramienta/herramienta.component';
+import { ListarHerramientaComponent } from './component/herramienta/listar-herramienta/listar-herramienta.component';
+import { CreaeditaHerramientaComponent } from './component/herramienta/creaedita-herramienta/creaedita-herramienta.component';
+import { PacienteComponent } from './component/paciente/paciente.component';
+import { CreaeditaPacienteComponent } from './component/paciente/creaedita-paciente/creaedita-paciente.component';
+import { ListarPacienteComponent } from './component/paciente/listar-paciente/listar-paciente.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,13 @@ import { CreaeditaServicioComponent } from './component/servicio/creaedita-servi
     CreaeditaMedicamentoComponent,
     ServicioComponent,
     ListarServicioComponent,
-    CreaeditaServicioComponent
+    CreaeditaServicioComponent,
+    HerramientaComponent,
+    ListarHerramientaComponent,
+    CreaeditaHerramientaComponent,
+    PacienteComponent,
+    CreaeditaPacienteComponent,
+    ListarPacienteComponent
   ],
   imports: [
     BrowserModule,
