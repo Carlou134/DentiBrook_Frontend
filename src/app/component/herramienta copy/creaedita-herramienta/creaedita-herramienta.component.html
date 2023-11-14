@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>herramientaes</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <h2>Registro de herramientaes</h2>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>idherramientaes</mat-label>
+            <input matInput placeholder="Id" formContherramientaName="id" />
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>herramientaes</mat-label>
+            <mat-select formContherramientaName="herramienta">
+              <mat-option *ngFor="let r of tipos" [value]="r.value">
+                {{r.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerContherramientaCampo('herramienta')?.errors?.['required']">
+              Elegir el herramienta es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>odontologos</mat-label>
+            <mat-select
+            [(value)]="idUserSeleccionado"
+            formContherramientaName="user">
+              <mat-option *ngFor="let u of listaUsers" [value]="u.id">
+                {{u.username}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerContherramientaCampo('user')?.errors?.['required']">
+              Elegir el odontologo para asignarle la herramienta adecuada.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/herramientas" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
