@@ -35,6 +35,12 @@
           >
             Definir las cuotas son obligatorias
           </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('cuotas')?.errors?.['invalidInteger']">
+            Por favor, ingrese un número entero.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('cuotas')?.errors?.['negativeValue']">
+            Por favor, ingrese un número positivo.
+          </mat-error>
       </mat-form-field>
 
 
@@ -46,6 +52,12 @@
           *ngIf="obtenerControlCampo('porcentaje_descuento')?.errors?.['required']"
         >
           El porcentaje de descuento es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="obtenerControlCampo('porcentaje_descuento')?.errors?.['invalidInteger']">
+          Por favor, ingrese un número entero.
+        </mat-error>
+        <mat-error *ngIf="obtenerControlCampo('porcentaje_descuento')?.errors?.['outOfRange']">
+          El porcentaje de descuento debe estar entre 1 y 100.
         </mat-error>
       </mat-form-field>
 

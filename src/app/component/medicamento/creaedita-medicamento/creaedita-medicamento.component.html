@@ -58,6 +58,7 @@
             placeholder="Ingrese fecha de vencimiento"
             [matDatepicker]="picker"
             formControlName="fecha_caducidad"
+            [min]="minFecha"
           />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
@@ -75,13 +76,18 @@
       <br>
       <mat-form-field class="example-full-width">
         <mat-label>Precio</mat-label>
-        <input matInput placeholder="Precio" formControlName="precio"/>
-        <mat-error
-          *ngIf="obtenerControlCampo('precio')?.errors?.['required']"
-        >
+        <input matInput placeholder="Precio" formControlName="precio" />
+        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['required']">
           El precio es obligatorio.
         </mat-error>
+        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['invalidDecimal']">
+          El precio debe ser un número válido.
+        </mat-error>
+        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['negativeValue']">
+          El precio no puede ser negativo.
+        </mat-error>
       </mat-form-field>
+
 
       <br>
         <button mat-raised-button color="primary" class="accept">Aceptar</button>

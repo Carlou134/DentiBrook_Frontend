@@ -33,6 +33,12 @@
         >
           El precio es obligatorio.
         </mat-error>
+        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['invalidDecimal']">
+          El precio debe ser un número válido.
+        </mat-error>
+        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['negativeValue']">
+          El precio no puede ser negativo.
+        </mat-error>
       </mat-form-field>
 
       <br>
