@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtRequest } from 'src/app/model/jwtRequest';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,7 +10,8 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('container', { static: true }) container!: ElementRef; // Utilizamos '!' para indicar que estará definido
+  formularioActivo: 'login' | 'registro' = 'login';
+
   constructor(private loginService: LoginService,
     private router: Router,
     private snackBar: MatSnackBar) { }
@@ -34,11 +35,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  toggleContainer(active: boolean) {
-    if (active) {
-      this.container.nativeElement.classList.add('active');
-    } else {
-      this.container.nativeElement.classList.remove('active');
-    }
+  cambiarFormulario(formulario: 'login' | 'registro') {
+    this.formularioActivo = formulario;
   }
 }

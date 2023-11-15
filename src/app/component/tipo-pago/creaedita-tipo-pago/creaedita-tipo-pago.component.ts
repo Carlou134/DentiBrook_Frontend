@@ -35,10 +35,69 @@ export class CreaeditaTipoPagoComponent implements OnInit {
     this.form=this.formBuilder.group({
       tipo_pago_id: ['',],
       metodoDePago:['',Validators.required],
-      cuotas:['',Validators.required],
-      porcentaje_descuento:['',Validators.required]
+      cuotas:['', [Validators.required, this.validateDescuento]],
+      porcentaje_descuento:['', [Validators.required, this.validateDescuento]],
     })
   }
+
+  // Función de validación personalizada para el campo 'porcentaje_descuento'
+  validateDescuento(control: AbstractControl) {
+    const value = control.value;
+
+    if (value === null || value === undefined) {
+      return null; // Permitir valores nulos o indefinidos
+    }
+
+    // Convertir el valor a un número
+    const numericValue = parseInt(value, 10);
+
+    // Verificar si el valor es un número entero
+    if (!Number.isInteger(numericValue)) {
+      return { invalidInteger: true }; // Devolver un error si no es un número entero
+    }
+
+    // Verificar si el valor está en el rango del 1 al 100
+    if (numericValue < 1 || numericValue > 100) {
+      return { outOfRange: true }; // Devolver un error si está fuera del rango
+    }
+
+    return null; // El valor es válido
+  }
+
+  // Función de validación personalizada para el campo 'cuotas'
+  validateCuotas(control: AbstractControl) {
+    const value = control.value;
+
+    if (value === null || value === undefined) {
+      return null; // Permitir valores nulos o indefinidos
+    }
+
+    // Convertir el valor a un número
+    const numericValue = parseInt(value, 10);
+
+    // Verificar si el valor es un número entero seguro
+    if (!Number.isSafeInteger(numericValue)) {
+      return { invalidInteger: true }; // Devolver un error si no es un número entero seguro
+    }
+
+    // Verificar si el valor es positivo
+    if (numericValue <= 0) {
+      return { negativeValue: true }; // Devolver un error si es negativo o cero
+    }
+
+    // Definir el valor máximo de cuotas permitido
+    const maxCuotas = 12; // Puedes ajustar este valor según tus necesidades
+
+    // Verificar si el valor está en el rango permitido
+    if (numericValue > maxCuotas) {
+      return { outOfRange: true }; // Devolver un error si está fuera del rango
+    }
+
+    return null; // El valor es válido
+  }
+
+
+
 
   aceptar():void{
     if(this.form.valid){

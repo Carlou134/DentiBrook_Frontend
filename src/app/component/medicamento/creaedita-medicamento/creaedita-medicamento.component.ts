@@ -18,6 +18,7 @@ export class CreaeditaMedicamentoComponent implements OnInit{
   fecha_caducidad = new FormControl(new Date());
   id: number = 0;
   edicion: boolean = false;
+  minFecha: Date = moment().add(1, 'days').toDate();
   formas:{value:string,viewValue:string}[]=[{value:'Tabletas',viewValue:'Tabletas'},
   {value:'Cápsulas',viewValue:'Cápsulas'}, {value:'Suspensiones',viewValue:'Suspensiones'},
   {value:'Jarabes',viewValue:'Jarabes'}, {value:'Inyecciones',viewValue:'Inyecciones'},
@@ -55,17 +56,20 @@ export class CreaeditaMedicamentoComponent implements OnInit{
   // Función de validación personalizada para el campo 'precio'
   validateDecimal(control: AbstractControl) {
     const value = control.value;
-    if (value === null || value === undefined) {
-      return null; // Permitir valores nulos o indefinidos
+
+    if (value === null || value === undefined || value === '') {
+      return { required: true }; // Indicar que el campo es obligatorio
     }
 
-    // Verificar si el valor puede ser convertido a un objeto Decimal
-    if (isNaN(Number(value))) {
-      return { invalidDecimal: true }; // Devolver un error si no se puede convertir a Decimal
+    const numericValue = Number(value);
+
+    if (isNaN(numericValue) || numericValue < 0) {
+      return { invalidDecimal: true, negativeValue: true }; // Indicar que el valor no es un número válido o es negativo
     }
 
     return null; // El valor es válido
   }
+
 
   aceptar():void{
     if(this.form.valid){
