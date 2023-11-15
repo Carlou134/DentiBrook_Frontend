@@ -14,11 +14,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LandingPageComponent
   ],
   imports: [
     CommonModule,
