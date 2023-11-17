@@ -41,6 +41,9 @@ import { CreaeditaUsersComponent } from './component/users/creaedita-users/creae
 import { RolesComponent } from './component/roles/roles.component';
 import { ListarRolesComponent } from './component/roles/listar-roles/listar-roles.component';
 import { CreaeditaRolesComponent } from './component/roles/creaedita-roles/creaedita-roles.component';
+import { ReputacionComponent } from './component/reputacion/reputacion.component';
+import { ListarReputacionComponent } from './component/reputacion/listar-reputacion/listar-reputacion.component';
+import { CreaeditaReputacionComponent } from './component/reputacion/creaedita-reputacion/creaedita-reputacion.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +70,9 @@ import { CreaeditaRolesComponent } from './component/roles/creaedita-roles/creae
     RolesComponent,
     ListarRolesComponent,
     CreaeditaRolesComponent,
+    ReputacionComponent,
+    ListarReputacionComponent,
+    CreaeditaReputacionComponent,
   ],
   imports: [
     BrowserModule,
