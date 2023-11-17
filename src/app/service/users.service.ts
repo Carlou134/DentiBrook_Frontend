@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Users } from '../model/users';
+import { RolbyUserDTO } from '../model/RolbyUserDTO';
 const base_url = environment.base;
 
 @Injectable({
@@ -61,6 +62,16 @@ export class UsersService {
     let token = sessionStorage.getItem('token');
 
     return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getSuma():Observable<RolbyUserDTO[]>{
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<RolbyUserDTO[]>(`${this.url}/cantidadusersporrol`,{
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
