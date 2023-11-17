@@ -7,30 +7,32 @@
 </head>
 <body>
   <div class="container" style="text-align: center">
-    <h2>Registro de Especialidad</h2>
-    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-      <mat-form-field class="example-full-width" *ngIf="edicion">
-        <mat-label>idEspecialidad</mat-label><input matInput placeholder="Id" formControlName="especialidad_id" />
-      </mat-form-field>
+    <mat-card>
+      <mat-card-content><h2>Registro de Especialidad</h2></mat-card-content>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>idEspecialidad</mat-label><input matInput placeholder="Id" formControlName="especialidad_id" />
+        </mat-form-field>
 
-      <br />
-      <mat-form-field class="example-full-width">
-        <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Nombre" formControlName="nombreEspecialidad"/>
-        <mat-error
-            *ngIf="obtenerControlCampo('nombreEspecialidad')?.errors?.['required']"
-          >
-            El nombre es obligatorio.
-          </mat-error>
-      </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" formControlName="nombreEspecialidad"/>
+          <mat-error
+              *ngIf="obtenerControlCampo('nombreEspecialidad')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+        </mat-form-field>
 
-      <br>
-        <button mat-raised-button color="primary" class="accept">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/components/especialidad" class="cancel">
-          Cancelar
-        </button>
-        <p>{{ mensaje }}</p>
-    </form>
+        <br>
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/especialidad" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+    </mat-card>
   </div>
 </body>
 </html>

@@ -2,6 +2,10 @@ table {
   width: 100%;
 }
 
+body {
+  margin-top: 80px;
+}
+
 .search{
   background-color: #78CAD2;
 }
