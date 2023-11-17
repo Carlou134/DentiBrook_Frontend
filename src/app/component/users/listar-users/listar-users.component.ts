@@ -14,8 +14,6 @@ export class ListarUsersComponent implements OnInit {
   displayedColumns: string[] = [
     'codigo',
     'usuario',
-    'contra',
-    'habilitado',
     'nombre',
     'apellido',
     'genero',

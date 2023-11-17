@@ -30,7 +30,7 @@ export class CreaeditaEspecialidadComponent implements OnInit {
 
     this.form=this.formBuilder.group({
       especialidad_id: ['',],
-      nombreEspecialidad:['',Validators.required],
+      nombreEspecialidad:['',[Validators.required, Validators.maxLength(30)]],
     })
   }
 
