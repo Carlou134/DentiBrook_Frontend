@@ -15,12 +15,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { OdontologoComponent } from './odontologo/odontologo.component';
+import { ListarOdontologoComponent } from './odontologo/listar-odontologo/listar-odontologo.component';
+import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     HomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    OdontologoComponent,
+    ListarOdontologoComponent,
+    CreaeditaOdontologoComponent
   ],
   imports: [
     CommonModule,
