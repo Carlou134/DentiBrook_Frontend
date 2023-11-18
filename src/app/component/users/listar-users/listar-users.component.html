@@ -29,20 +29,6 @@
           <th mat-header-cell *matHeaderCellDef>Usuario</th>
           <td mat-cell *matCellDef="let element">{{ element.username }}</td>
         </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="contra">
-          <th mat-header-cell *matHeaderCellDef>Contraseña</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.password }}
-          </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="habilitado">
-          <th mat-header-cell *matHeaderCellDef>Habilitado</th>
-          <td mat-cell *matCellDef="let element">{{ element.enabled }}</td>
-        </ng-container>
         <!-- Symbol Column -->
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef>Nombre</th>

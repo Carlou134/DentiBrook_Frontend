@@ -45,7 +45,7 @@ export class CreaeditaMedicamentoComponent implements OnInit{
 
     this.form=this.formBuilder.group({
       medicamento_id: ['',],
-      nombre:['',Validators.required],
+      nombre:['',[Validators.required, Validators.maxLength(100)]],
       forma_farmaceutica:['',Validators.required],
       via:['',Validators.required],
       fecha_caducidad:['',Validators.required],

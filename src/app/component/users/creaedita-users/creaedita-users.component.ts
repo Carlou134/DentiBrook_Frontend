@@ -55,18 +55,18 @@ export class CreaeditaUsersComponent implements OnInit {
 
     this.form=this.formBuilder.group({
       id: ['',],
-      username:['',Validators.required],
-      password:['',Validators.required],
+      username:['',[Validators.required, Validators.maxLength(30)]],
+      password:['',[Validators.required, Validators.maxLength(200)]],
       enabled:['',Validators.required],
-      nombre:['',Validators.required],
-      apellido:['',Validators.required],
+      nombre:['',[Validators.required, Validators.maxLength(30), Validators.pattern(/^[a-zA-Z]+$/)]],
+      apellido:['',[Validators.required, Validators.maxLength(30), Validators.pattern(/^[a-zA-Z]+$/)]],
       genero:['',Validators.required],
       fecha_nacimiento:['',Validators.required],
-      dni:['',Validators.required],
-      correo_electronico: ['', [Validators.required, Validators.email]],
-      telefono:['',Validators.required],
-      pais_de_origen:['',Validators.required],
-      direccion: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern(/^[0-9]+$/), Validators.maxLength(9)]], // solo números, máximo 10 caracteres
+      correo_electronico: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]+$/), Validators.maxLength(10)]], // solo números
+      pais_de_origen:['',[Validators.required, Validators.maxLength(20)]],
+      direccion: ['', [Validators.required, Validators.maxLength(50)]],
     })
   }
 

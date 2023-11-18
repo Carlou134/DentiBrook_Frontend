@@ -31,7 +31,7 @@ export class CreaeditaServicioComponent implements OnInit {
 
     this.form=this.formBuilder.group({
       id: ['',],
-      tipo_servicio:['',Validators.required],
+      tipo_servicio:['',[Validators.required, Validators.maxLength(50)]],
       precio:['', [Validators.required, this.validateDecimal]],
     })
   }

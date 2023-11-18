@@ -7,47 +7,49 @@
 </head>
 <body>
   <div class="container" style="text-align: center">
-    <h2>Registro de Servicios</h2>
-    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-      <mat-form-field class="example-full-width" *ngIf="edicion">
-        <mat-label>idService</mat-label><input matInput placeholder="Id" formControlName="id" />
-      </mat-form-field>
+    <mat-card>
+      <mat-card-content><h2>Registro de Servicios</h2></mat-card-content>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>idService</mat-label><input matInput placeholder="Id" formControlName="id" />
+        </mat-form-field>
 
-      <br />
-      <mat-form-field class="example-full-width">
-        <mat-label>Tipo</mat-label>
-        <input matInput placeholder="Tipo" formControlName="tipo_servicio"/>
-        <mat-error
-            *ngIf="obtenerControlCampo('tipo_servicio')?.errors?.['required']"
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>Tipo</mat-label>
+          <input matInput placeholder="Tipo" formControlName="tipo_servicio"/>
+          <mat-error
+              *ngIf="obtenerControlCampo('tipo_servicio')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Precio</mat-label>
+          <input matInput placeholder="Precio" formControlName="precio"/>
+          <mat-error
+            *ngIf="obtenerControlCampo('precio')?.errors?.['required']"
           >
-            El nombre es obligatorio.
+            El precio es obligatorio.
           </mat-error>
-      </mat-form-field>
+          <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['invalidDecimal']">
+            El precio debe ser un número válido.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['negativeValue']">
+            El precio no puede ser negativo.
+          </mat-error>
+        </mat-form-field>
 
-      <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>Precio</mat-label>
-        <input matInput placeholder="Precio" formControlName="precio"/>
-        <mat-error
-          *ngIf="obtenerControlCampo('precio')?.errors?.['required']"
-        >
-          El precio es obligatorio.
-        </mat-error>
-        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['invalidDecimal']">
-          El precio debe ser un número válido.
-        </mat-error>
-        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['negativeValue']">
-          El precio no puede ser negativo.
-        </mat-error>
-      </mat-form-field>
-
-      <br>
-        <button mat-raised-button color="primary" class="accept">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/components/servicios" class="cancel">
-          Cancelar
-        </button>
-        <p>{{ mensaje }}</p>
-    </form>
+        <br>
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/servicios" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+    </mat-card>
   </div>
 </body>
 </html>

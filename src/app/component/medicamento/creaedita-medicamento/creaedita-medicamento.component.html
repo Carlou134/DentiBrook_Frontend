@@ -7,95 +7,97 @@
 </head>
 <body>
   <div class="container" style="text-align: center">
-    <h2>Registro de Medicamentos</h2>
-    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-      <mat-form-field class="example-full-width" *ngIf="edicion">
-        <mat-label>idMedicamento</mat-label><input matInput placeholder="Id" formControlName="medicamento_id" />
-      </mat-form-field>
+    <mat-card>
+      <mat-card-content><h2>Registro de Medicamentos</h2></mat-card-content>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>idMedicamento</mat-label><input matInput placeholder="Id" formControlName="medicamento_id" />
+        </mat-form-field>
 
-      <br />
-      <mat-form-field class="example-full-width">
-        <mat-label>nombre</mat-label>
-        <input matInput placeholder="nombre" formControlName="nombre"/>
-        <mat-error
-            *ngIf="obtenerControlCampo('nombre')?.errors?.['required']"
-          >
-            El nombre es obligatorio.
-          </mat-error>
-      </mat-form-field>
-
-      <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>Forma farmaceutica</mat-label>
-        <mat-select formControlName="forma_farmaceutica">
-          <mat-option *ngFor="let f of formas" [value]="f.value">
-            {{f.viewValue}}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="obtenerControlCampo('forma_farmaceutica')?.errors?.['required']">
-          La forma farmaceutica es obligatoria.
-        </mat-error>
-      </mat-form-field>
-
-      <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>Vias</mat-label>
-        <mat-select formControlName="via">
-          <mat-option *ngFor="let v of vias" [value]="v.value">
-            {{v.viewValue}}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="obtenerControlCampo('via')?.errors?.['required']">
-          La via es obligatoria.
-        </mat-error>
-      </mat-form-field>
-
-
-      <br />
-      <mat-form-field appearance="fill" class="example-full-width">
-        <input
-            matInput
-            placeholder="Ingrese fecha de vencimiento"
-            [matDatepicker]="picker"
-            formControlName="fecha_caducidad"
-            [min]="minFecha"
-          />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>nombre</mat-label>
+          <input matInput placeholder="nombre" formControlName="nombre"/>
           <mat-error
-            *ngIf="obtenerControlCampo('fecha_caducidad')?.errors?.['required']"
-          >
-           La fecha de caducidad es obligatoria.
+              *ngIf="obtenerControlCampo('nombre')?.errors?.['required']"
+            >
+              El nombre es obligatorio.
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Forma farmaceutica</mat-label>
+          <mat-select formControlName="forma_farmaceutica">
+            <mat-option *ngFor="let f of formas" [value]="f.value">
+              {{f.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('forma_farmaceutica')?.errors?.['required']">
+            La forma farmaceutica es obligatoria.
           </mat-error>
-      </mat-form-field>
+        </mat-form-field>
 
-      <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>Precio</mat-label>
-        <input matInput placeholder="Precio" formControlName="precio" />
-        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['required']">
-          El precio es obligatorio.
-        </mat-error>
-        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['invalidDecimal']">
-          El precio debe ser un número válido.
-        </mat-error>
-        <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['negativeValue']">
-          El precio no puede ser negativo.
-        </mat-error>
-      </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Vias</mat-label>
+          <mat-select formControlName="via">
+            <mat-option *ngFor="let v of vias" [value]="v.value">
+              {{v.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('via')?.errors?.['required']">
+            La via es obligatoria.
+          </mat-error>
+        </mat-form-field>
 
 
-      <br>
-        <button mat-raised-button color="primary" class="accept">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/components/medicamento" class="cancel">
-          Cancelar
-        </button>
-        <p>{{ mensaje }}</p>
-    </form>
+        <br />
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+              matInput
+              placeholder="Ingrese fecha de vencimiento"
+              [matDatepicker]="picker"
+              formControlName="fecha_caducidad"
+              [min]="minFecha"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('fecha_caducidad')?.errors?.['required']"
+            >
+             La fecha de caducidad es obligatoria.
+            </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Precio</mat-label>
+          <input matInput placeholder="Precio" formControlName="precio" />
+          <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['required']">
+            El precio es obligatorio.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['invalidDecimal']">
+            El precio debe ser un número válido.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('precio')?.errors?.['negativeValue']">
+            El precio no puede ser negativo.
+          </mat-error>
+        </mat-form-field>
+
+
+        <br>
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/medicamento" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+    </mat-card>
   </div>
 </body>
 </html>
