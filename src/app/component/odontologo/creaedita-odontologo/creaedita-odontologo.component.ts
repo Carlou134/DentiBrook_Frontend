@@ -11,7 +11,7 @@ export class CreaeditaOdontologoComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   odontologo: Odontologo=new Odontologo();
   mensaje: string = '';
-
+  
   ngOnInit(): void {
   
 }
