@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { ChartOptions, ChartDataset } from 'chart.js';
-import { UsersService } from 'src/app/service/users.service';
+import { TipoPagoService } from 'src/app/service/tipo-pago.service';
 
 @Component({
   selector: 'app-reporte01',
@@ -12,20 +12,18 @@ export class Reporte01Component implements OnInit {
   barChartOptions: ChartOptions = {
     responsive: true,
   };
-  barChartLabels:string[] = [];
+  barChartLabels: string[] = [];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
-
-  constructor(private uS: UsersService){}
-
+  constructor(private tS: TipoPagoService) {}
   ngOnInit(): void {
-    this.uS.getSuma().subscribe((data) => {
-      this.barChartLabels = data.map((item)=>item.rol);
+    this.tS.getSuma().subscribe((data) => {
+      this.barChartLabels = data.map((item) => item.metodoDePago);
       this.barChartData=[
         {
-          data:data.map(item=>item.QuantityUsers),label:'Total Usuarios asignados',
-          backgroundColor: 'rgba(255,0,0,0.8)'
+          data:data.map(item=>item.totalCuotas),label:'Total Cuotas asignadas',
+          backgroundColor:'rgba(255,0,0,0.5)'
         }
       ]
     });

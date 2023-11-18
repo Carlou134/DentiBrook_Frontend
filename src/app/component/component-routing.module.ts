@@ -18,6 +18,7 @@ import { RolesComponent } from './roles/roles.component';
 import { CreaeditaRolesComponent } from './roles/creaedita-roles/creaedita-roles.component';
 import { HomeComponent } from './home/home.component';
 import { ReporteComponent } from './reporte/reporte.component';
+import { Reporte01Component } from './reporte/reporte01/reporte01.component';
 
 
 
@@ -105,7 +106,12 @@ const routes: Routes = [
   },
   {
     path: 'reportes',
-    component: ReporteComponent
+    component: ReporteComponent,
+    children: [
+      {
+        path: 'reporte01', component: Reporte01Component
+      }
+    ]
   }
 ];
 
