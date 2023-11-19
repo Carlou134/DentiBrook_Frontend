@@ -29,6 +29,10 @@
       <mat-icon>stars</mat-icon>
     </button>
 
+    <button mat-icon-button *ngIf="role == 'USER'" routerLink="/components/citas">
+      <mat-icon>date_range</mat-icon>
+    </button>
+
     <button mat-icon-button *ngIf="role == 'ODONTOLOGO'" [matMenuTriggerFor]="menuUser">
       <mat-icon>account_circle</mat-icon>
     </button>

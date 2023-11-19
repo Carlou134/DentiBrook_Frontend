@@ -30,6 +30,9 @@ import { ListarReputacionComponent } from './reputacion/listar-reputacion/listar
 import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
 import { Reporte02Component } from './reporte/reporte02/reporte02.component';
 import { Reporte03Component } from './reporte/reporte03/reporte03.component';
+import { CitaComponent } from './cita/cita.component';
+import { ListarCitaComponent } from './cita/listar-cita/listar-cita.component';
+import { CreaeditaCitaComponent } from './cita/creaedita-cita/creaedita-cita.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { Reporte03Component } from './reporte/reporte03/reporte03.component';
     ListarReputacionComponent,
     CreaeditaReputacionComponent,
     Reporte02Component,
-    Reporte03Component
+    Reporte03Component,
+    CitaComponent,
+    ListarCitaComponent,
+    CreaeditaCitaComponent
   ],
   imports: [
     CommonModule,
