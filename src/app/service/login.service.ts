@@ -10,7 +10,8 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(request: JwtRequest) {
-    return this.http.post("http://localhost:8080/authenticate", request);
+    //http://localhost:8080/authenticate
+    return this.http.post("https://dentibrookapi-ca799cd106d4.herokuapp.com/authenticate", request);
   }
   verificar() {
     let token = sessionStorage.getItem("token");
