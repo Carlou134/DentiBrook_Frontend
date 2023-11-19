@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paciente</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <mat-card>
+        <mat-card-content><h2>Registro de Pacientes</h2></mat-card-content>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>Paciente id</mat-label>
+            <input matInput placeholder="Id" formControlName="id_paciente" />
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Usuarios</mat-label>
+            <mat-select
+            [(value)]="idUserSeleccionado"
+            formControlName="user_id">
+              <mat-option *ngFor="let u of listaUsers" [value]="u.id">
+                {{u.username}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('user_id')?.errors?.['required']">
+              Elegir el usuario es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>Contacto de Emergencia</mat-label>
+          <input matInput placeholder="contacto" formControlName="contacto_emergencia"/>
+          <mat-error
+              *ngIf="obtenerControlCampo('contacto_emergencia')?.errors?.['required']"
+            >
+              El contacto de emergencia es obligatorio.
+            </mat-error>
+        </mat-form-field>
+
+          <br />
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/pacientes" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+      </mat-card>
+    </div>
+  </body>
+</html>

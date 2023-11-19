@@ -21,6 +21,8 @@ import { ReporteComponent } from './reporte/reporte.component';
 import { Reporte01Component } from './reporte/reporte01/reporte01.component';
 import { OdontologoComponent } from './odontologo/odontologo.component';
 import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
+import { PacienteComponent } from './paciente/paciente.component';
+import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaedita-paciente.component';
 
 
 
@@ -47,6 +49,17 @@ const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: CreaeditaOdontologoComponent
+      },
+    ]
+  },
+  {
+    path: 'pacientes', component: PacienteComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaPacienteComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaPacienteComponent
       },
     ]
   },

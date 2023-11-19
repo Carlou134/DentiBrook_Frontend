@@ -21,6 +21,10 @@
       <mat-icon>payment</mat-icon>
     </button>
 
+    <button mat-icon-button *ngIf="role == 'USER'" routerLink="/components/pacientes">
+      <mat-icon>face</mat-icon>
+    </button>
+
     <button mat-icon-button *ngIf="role == 'ODONTOLOGO'" [matMenuTriggerFor]="menuUser">
       <mat-icon>account_circle</mat-icon>
     </button>

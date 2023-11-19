@@ -22,6 +22,9 @@ import { NgChartsModule } from 'ng2-charts';
 import { OdontologoComponent } from './odontologo/odontologo.component';
 import { ListarOdontologoComponent } from './odontologo/listar-odontologo/listar-odontologo.component';
 import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
+import { PacienteComponent } from './paciente/paciente.component';
+import { PacienteListarComponent } from './paciente/paciente-listar/paciente-listar.component';
+import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaedita-paciente.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/
     Reporte01Component,
     OdontologoComponent,
     ListarOdontologoComponent,
-    CreaeditaOdontologoComponent
+    CreaeditaOdontologoComponent,
+    PacienteComponent,
+    PacienteListarComponent,
+    CreaeditaPacienteComponent
   ],
   imports: [
     CommonModule,

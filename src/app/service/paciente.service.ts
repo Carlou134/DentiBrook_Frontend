@@ -2,38 +2,38 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Odontologo } from '../model/odontologo';
+import { Paciente } from '../model/paciente';
 const base_url = environment.base;
 
 @Injectable({
   providedIn: 'root'
 })
-export class OdontologoService {
-  private url = `${base_url}/odontologos`;
-  private listaCambio = new Subject<Odontologo[]>();
+export class PacienteService {
+  private url = `${base_url}/pacientes`;
+  private listaCambio = new Subject<Paciente[]>();
   constructor(private http:HttpClient) { }
 
   list(){
     let token = sessionStorage.getItem('token');
 
-    return this.http.get<Odontologo[]>(this.url, {
+    return this.http.get<Paciente[]>(this.url, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
 
-  insert(odontologo:Odontologo){
+  insert(paciente:Paciente){
     let token = sessionStorage.getItem('token');
 
-    return this.http.post(this.url, odontologo, {
+    return this.http.post(this.url, paciente, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
 
-  setlist(listaNueva:Odontologo[]){
+  setlist(listaNueva:Paciente[]){
     this.listaCambio.next(listaNueva);
   }
 
@@ -44,17 +44,17 @@ export class OdontologoService {
   listId(id: number) {
     let token = sessionStorage.getItem('token');
 
-    return this.http.get<Odontologo>(`${this.url}/${id}`, {
+    return this.http.get<Paciente>(`${this.url}/${id}`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
 
-  update(o:Odontologo) {
+  update(p:Paciente) {
     let token = sessionStorage.getItem('token');
 
-    return this.http.put(this.url, o, {
+    return this.http.put(this.url, p, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
