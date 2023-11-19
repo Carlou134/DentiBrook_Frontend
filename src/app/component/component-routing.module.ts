@@ -26,6 +26,7 @@ import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaed
 import { ReputacionComponent } from './reputacion/reputacion.component';
 import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
 import { Reporte02Component } from './reporte/reporte02/reporte02.component';
+import { Reporte03Component } from './reporte/reporte03/reporte03.component';
 
 
 
@@ -153,6 +154,9 @@ const routes: Routes = [
       },
       {
         path: 'reporte02', component: Reporte02Component
+      },
+      {
+        path: 'reporte03', component: Reporte03Component
       }
     ]
   }

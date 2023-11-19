@@ -4,6 +4,7 @@ import { Subject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Odontologo } from '../model/odontologo';
 import { HistorialDTOSum } from '../model/HistorialDTOSum';
+import { EstrellasSumDTO } from '../model/EstrellasSumDTO';
 const base_url = environment.base;
 
 @Injectable({
@@ -75,6 +76,15 @@ export class OdontologoService {
   getSuma(): Observable<HistorialDTOSum[]> {
     let token = sessionStorage.getItem('token');
     return this.http.get<HistorialDTOSum[]>(`${this.url}/historial`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getSumaestrellas(): Observable<EstrellasSumDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<EstrellasSumDTO[]>(`${this.url}/estrellas`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),

@@ -29,6 +29,7 @@ import { ReputacionComponent } from './reputacion/reputacion.component';
 import { ListarReputacionComponent } from './reputacion/listar-reputacion/listar-reputacion.component';
 import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
 import { Reporte02Component } from './reporte/reporte02/reporte02.component';
+import { Reporte03Component } from './reporte/reporte03/reporte03.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { Reporte02Component } from './reporte/reporte02/reporte02.component';
     ReputacionComponent,
     ListarReputacionComponent,
     CreaeditaReputacionComponent,
-    Reporte02Component
+    Reporte02Component,
+    Reporte03Component
   ],
   imports: [
     CommonModule,
