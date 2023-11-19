@@ -25,6 +25,9 @@ import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/
 import { PacienteComponent } from './paciente/paciente.component';
 import { PacienteListarComponent } from './paciente/paciente-listar/paciente-listar.component';
 import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaedita-paciente.component';
+import { ReputacionComponent } from './reputacion/reputacion.component';
+import { ListarReputacionComponent } from './reputacion/listar-reputacion/listar-reputacion.component';
+import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaed
     CreaeditaOdontologoComponent,
     PacienteComponent,
     PacienteListarComponent,
-    CreaeditaPacienteComponent
+    CreaeditaPacienteComponent,
+    ReputacionComponent,
+    ListarReputacionComponent,
+    CreaeditaReputacionComponent
   ],
   imports: [
     CommonModule,

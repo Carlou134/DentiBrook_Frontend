@@ -23,6 +23,8 @@ import { OdontologoComponent } from './odontologo/odontologo.component';
 import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaedita-paciente.component';
+import { ReputacionComponent } from './reputacion/reputacion.component';
+import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
 
 
 
@@ -60,6 +62,17 @@ const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: CreaeditaPacienteComponent
+      },
+    ]
+  },
+  {
+    path: 'reputacion', component: ReputacionComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaReputacionComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaReputacionComponent
       },
     ]
   },
