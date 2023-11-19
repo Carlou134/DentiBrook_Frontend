@@ -68,10 +68,9 @@ export class UsersService {
     });
   }
 
-  getSuma():Observable<RolbyUserDTO[]>{
+  getSuma(): Observable<RolbyUserDTO[]> {
     let token = sessionStorage.getItem('token');
-
-    return this.http.get<RolbyUserDTO[]>(`${this.url}/cantidadusersporrol`,{
+    return this.http.get<RolbyUserDTO[]>(`${this.url}/cantidadusersporrol`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
