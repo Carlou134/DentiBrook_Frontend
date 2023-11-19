@@ -15,12 +15,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HerramientaComponent } from './herramienta/herramienta.component';
+import { CreaeditaHerramientaComponent } from './herramienta/creaedita-herramienta/creaedita-herramienta.component';
+import { ListarHerramientaComponent } from './herramienta/listar-herramienta/listar-herramienta.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     HomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    HerramientaComponent,
+    CreaeditaHerramientaComponent,
+    ListarHerramientaComponent
   ],
   imports: [
     CommonModule,
