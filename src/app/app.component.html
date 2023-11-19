@@ -21,6 +21,14 @@
       <mat-icon>payment</mat-icon>
     </button>
 
+    <button mat-icon-button *ngIf="role == 'USER'" routerLink="/components/pacientes">
+      <mat-icon>face</mat-icon>
+    </button>
+
+    <button mat-icon-button *ngIf="role == 'USER'" routerLink="/components/reputacion">
+      <mat-icon>stars</mat-icon>
+    </button>
+
     <button mat-icon-button *ngIf="role == 'ODONTOLOGO'" [matMenuTriggerFor]="menuUser">
       <mat-icon>account_circle</mat-icon>
     </button>
@@ -39,11 +47,20 @@
     <button mat-menu-item routerLink="/components/roles">
       <span>Roles</span>
     </button>
+    <button mat-menu-item routerLink="/components/odontologo">
+      <span>Odontologos</span>
+    </button>
   </mat-menu>
 
   <mat-menu #menuReportes="matMenu">
     <button mat-menu-item routerLink="/components/reportes/reporte01">
       <span>Reporte 01</span>
+    </button>
+    <button mat-menu-item routerLink="/components/reportes/reporte02">
+      <span>Reporte 02</span>
+    </button>
+    <button mat-menu-item routerLink="/components/reportes/reporte03">
+      <span>Reporte 03</span>
     </button>
   </mat-menu>
 

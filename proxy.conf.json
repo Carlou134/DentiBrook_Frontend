@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://dentibrookapi-ca799cd106d4.herokuapp.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

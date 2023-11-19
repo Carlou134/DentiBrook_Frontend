@@ -17,10 +17,16 @@ import { CreaeditaUsersComponent } from './users/creaedita-users/creaedita-users
 import { RolesComponent } from './roles/roles.component';
 import { CreaeditaRolesComponent } from './roles/creaedita-roles/creaedita-roles.component';
 import { HomeComponent } from './home/home.component';
-import { OdontologoComponent } from './odontologo/odontologo.component';
-import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
 import { ReporteComponent } from './reporte/reporte.component';
 import { Reporte01Component } from './reporte/reporte01/reporte01.component';
+import { OdontologoComponent } from './odontologo/odontologo.component';
+import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
+import { PacienteComponent } from './paciente/paciente.component';
+import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaedita-paciente.component';
+import { ReputacionComponent } from './reputacion/reputacion.component';
+import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
+import { Reporte02Component } from './reporte/reporte02/reporte02.component';
+import { Reporte03Component } from './reporte/reporte03/reporte03.component';
 
 
 
@@ -37,6 +43,39 @@ const routes: Routes = [
       {
         path: 'reporte', component: ReporteEspecialidadComponent
       }
+    ]
+  },
+  {
+    path: 'odontologo', component: OdontologoComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaOdontologoComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaOdontologoComponent
+      },
+    ]
+  },
+  {
+    path: 'pacientes', component: PacienteComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaPacienteComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaPacienteComponent
+      },
+    ]
+  },
+  {
+    path: 'reputacion', component: ReputacionComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaReputacionComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaReputacionComponent
+      },
     ]
   },
   {
@@ -82,17 +121,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'odontologo', component: OdontologoComponent,
-    children: [
-      {
-        path: 'nuevo', component: CreaeditaOdontologoComponent
-      },
-      {
-        path: 'ediciones/:id', component: CreaeditaOdontologoComponent
-      },
-    ]
-  },
-  {
     path: 'users', component: UsersComponent,
     children: [
       {
@@ -123,6 +151,12 @@ const routes: Routes = [
     children: [
       {
         path: 'reporte01', component: Reporte01Component
+      },
+      {
+        path: 'reporte02', component: Reporte02Component
+      },
+      {
+        path: 'reporte03', component: Reporte03Component
       }
     ]
   }

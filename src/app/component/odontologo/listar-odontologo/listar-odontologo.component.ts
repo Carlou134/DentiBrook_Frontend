@@ -10,39 +10,40 @@ import { OdontologoService } from 'src/app/service/odontologo.service';
   styleUrls: ['./listar-odontologo.component.css']
 })
 export class ListarOdontologoComponent implements OnInit {
-dataSource: MatTableDataSource<Odontologo>=new MatTableDataSource();
-displayedColumns: String[]=['codigo',
-'usuario',
-'especialidad',
-'anios',
-'educacion',
-'historial',
-'horario',
-'salario',
-'accion01',
-'accion02',
-]
-@ViewChild(MatPaginator) paginator!: MatPaginator;
-constructor(private oS: OdontologoService) {}
-  ngOnInit(): void {
-    this.oS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
-    this.oS.getList().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
-}
-eliminar(id: number) {
-  this.oS.delete(id).subscribe((data) => {
-    this.oS.list().subscribe((data) =>{
-      this.oS.setList(data);
-    });
-  });
-}
+  dataSource: MatTableDataSource<Odontologo>=new MatTableDataSource();
+  displayedColumns: String[]=['codigo',
+  'usuario',
+  'especialidad',
+  'anios',
+  'educacion',
+  'historial',
+  'horario',
+  'salario',
+  'accion01',
+  'accion02',
+  ]
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  constructor(private oS: OdontologoService) {}
+    ngOnInit(): void {
+      this.oS.list().subscribe((data) => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+      });
+      this.oS.getlist().subscribe((data) => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+      });
+  }
 
-filter(en: any) {
-  this.dataSource.filter = en.target.value.trim();
-}
+  eliminar(id: number) {
+    this.oS.delete(id).subscribe((data) => {
+      this.oS.list().subscribe((data) =>{
+        this.oS.setlist(data);
+      });
+    });
+  }
+
+  filter(en: any) {
+    this.dataSource.filter = en.target.value.trim();
+  }
 }
