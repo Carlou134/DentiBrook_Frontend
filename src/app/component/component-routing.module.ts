@@ -20,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 import { OdontologoComponent } from './odontologo/odontologo.component';
 import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
 import { ReporteComponent } from './reporte/reporte.component';
-import { Reporte01Component } from './reporte/reporte01/reporte01.component';
 
 
 
@@ -119,12 +118,7 @@ const routes: Routes = [
   },
   {
     path: 'reportes',
-    component: ReporteComponent,
-    children: [
-      {
-        path: 'reporte01', component: Reporte01Component
-      }
-    ]
+    component: ReporteComponent
   }
 ];
 

@@ -3,7 +3,6 @@ import { Subject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { Tipo_Pago } from '../model/tipo_pago';
-import { TipoPagoSumDTO } from '../model/TipoPagoSumDTO';
 const base_url = environment.base
 
 @Injectable({
@@ -82,14 +81,5 @@ export class TipoPagoService {
           .set('Authorization', `Bearer ${token}`)
           .set('Content-Type', 'application/json'),
       });
-  }
-
-  getSuma(): Observable<TipoPagoSumDTO[]> {
-    let token = sessionStorage.getItem('token');
-    return this.http.get<TipoPagoSumDTO[]>(`${this.url}/cuotas`, {
-      headers: new HttpHeaders()
-        .set('Authorization', `Bearer ${token}`)
-        .set('Content-Type', 'application/json'),
-    });
   }
 }

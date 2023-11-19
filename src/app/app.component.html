@@ -25,10 +25,6 @@
       <mat-icon>account_circle</mat-icon>
     </button>
 
-    <button mat-icon-button *ngIf="role == 'ODONTOLOGO'" [matMenuTriggerFor]="menuReportes">
-      <mat-icon>report</mat-icon>
-    </button>
-
     <button mat-button [matMenuTriggerFor]="menuSalir">Salir</button>
   </mat-toolbar>
 
@@ -38,12 +34,6 @@
     </button>
     <button mat-menu-item routerLink="/components/roles">
       <span>Roles</span>
-    </button>
-  </mat-menu>
-
-  <mat-menu #menuReportes="matMenu">
-    <button mat-menu-item routerLink="/components/reportes/reporte01">
-      <span>Reporte 01</span>
     </button>
   </mat-menu>
 
