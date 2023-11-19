@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citas</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <mat-card>
+        <mat-card-content><h2>Registro de Odontologos</h2></mat-card-content>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>Cita id</mat-label>
+            <input matInput placeholder="Id" formControlName="cita_id" />
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Pacientes</mat-label>
+            <mat-select
+            [(value)]="idPacienteSeleccionado"
+            formControlName="paciente_id">
+              <mat-option *ngFor="let p of listaPaciente" [value]="p.id_paciente">
+                {{p.user_id.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('paciente_id')?.errors?.['required']">
+              Elegir el paciente es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Odontologo</mat-label>
+            <mat-select
+            [(value)]="idOdontologoSeleccionado"
+            formControlName="odontologo_id">
+              <mat-option *ngFor="let o of listaOdontologo" [value]="o.odontologo_id">
+                {{o.user_id.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('odontologo_id')?.errors?.['required']">
+              Elegir el odontologo es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Servicio</mat-label>
+            <mat-select
+            [(value)]="idServicioSeleccionado"
+            formControlName="servicio_id">
+              <mat-option *ngFor="let s of listaServicio" [value]="s.id">
+                {{s.tipo_servicio}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('servicio_id')?.errors?.['required']">
+              Elegir el servicio es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Tipo de Pago</mat-label>
+            <mat-select
+            [(value)]="idTipoPagoSeleccionado"
+            formControlName="tipo_pago_id">
+              <mat-option *ngFor="let t of listaTipoPago" [value]="t.tipo_pago_id">
+                {{t.metodoDePago}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('tipo_pago_id')?.errors?.['required']">
+              Elegir el tipo de pago es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input
+                matInput
+                placeholder="Ingrese fecha de la cita"
+                [matDatepicker]="picker"
+                formControlName="fecha"
+                [min]="minFecha"
+              />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error
+                *ngIf="obtenerControlCampo('fecha')?.errors?.['required']"
+              >
+              La fecha de la cita es obligatoria.
+              </mat-error>
+          </mat-form-field>
+
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Hora de la cita</mat-label>
+            <input matInput placeholder="horario" formControlName="hora"/>
+            <mat-error
+                *ngIf="obtenerControlCampo('hora')?.errors?.['required']"
+              >
+                Definir la hora de la cita es obligatorio.
+              </mat-error>
+          </mat-form-field>
+
+
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Duracion de la cita</mat-label>
+            <input matInput placeholder="hora" formControlName="duracion_en_horas"/>
+            <mat-error
+                *ngIf="obtenerControlCampo('duracion_en_horas')?.errors?.['required']"
+              >
+                Definir la duracion de la cita es obligatorio
+              </mat-error>
+              <mat-error *ngIf="obtenerControlCampo('duracion_en_horas')?.errors?.['invalidInteger']">
+                Por favor, ingrese un número entero.
+              </mat-error>
+              <mat-error *ngIf="obtenerControlCampo('duracion_en_horas')?.errors?.['negativeValue']">
+                Por favor, ingrese un número positivo.
+              </mat-error>
+          </mat-form-field>
+
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Motivo de la cita</mat-label>
+            <textarea matInput placeholder="motivo" formControlName="motivo">
+              <mat-error
+                *ngIf="obtenerControlCampo('motivo')?.errors?.['required']"
+              >
+                El motivo es obligatorio.
+              </mat-error>
+            </textarea>
+          </mat-form-field>
+
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Estado de la cita</mat-label>
+            <textarea matInput placeholder="estado" formControlName="estado">
+              <mat-error
+                *ngIf="obtenerControlCampo('estado')?.errors?.['required']"
+              >
+                El estado es obligatorio.
+              </mat-error>
+            </textarea>
+          </mat-form-field>
+
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Direccion del consultorio</mat-label>
+            <input matInput placeholder="direccion" formControlName="direccion_consultorio"/>
+            <mat-error
+                *ngIf="obtenerControlCampo('direccion_consultorio')?.errors?.['required']"
+              >
+                La direccion es obligatoria.
+              </mat-error>
+          </mat-form-field>
+
+          <br />
+          <mat-form-field class="example-full-width">
+            <mat-label>Tipo de cita</mat-label>
+            <input matInput placeholder="tipo de cita" formControlName="tipo_cita"/>
+            <mat-error
+                *ngIf="obtenerControlCampo('tipo_cita')?.errors?.['required']"
+              >
+                El tipo de cita es obligatorio.
+              </mat-error>
+          </mat-form-field>
+
+          <br />
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/citas" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+      </mat-card>
+    </div>
+  </body>
+</html>

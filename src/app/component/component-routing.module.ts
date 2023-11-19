@@ -27,6 +27,8 @@ import { ReputacionComponent } from './reputacion/reputacion.component';
 import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
 import { Reporte02Component } from './reporte/reporte02/reporte02.component';
 import { Reporte03Component } from './reporte/reporte03/reporte03.component';
+import { CitaComponent } from './cita/cita.component';
+import { CreaeditaCitaComponent } from './cita/creaedita-cita/creaedita-cita.component';
 
 
 
@@ -139,6 +141,17 @@ const routes: Routes = [
       },
       {
         path: 'ediciones/:id', component: CreaeditaRolesComponent
+      }
+    ]
+  },
+  {
+    path: 'citas', component: CitaComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaCitaComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaCitaComponent
       }
     ]
   },
