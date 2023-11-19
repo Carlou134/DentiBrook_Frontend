@@ -55,6 +55,7 @@ import { CreaeditaCitaComponent } from './cita/creaedita-cita/creaedita-cita.com
     CitaComponent,
     ListarCitaComponent,
     CreaeditaCitaComponent
+    LandingPageComponent
   ],
   imports: [
     CommonModule,
