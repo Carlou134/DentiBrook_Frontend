@@ -28,6 +28,7 @@ import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaed
 import { ReputacionComponent } from './reputacion/reputacion.component';
 import { ListarReputacionComponent } from './reputacion/listar-reputacion/listar-reputacion.component';
 import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
+import { Reporte02Component } from './reporte/reporte02/reporte02.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/
     CreaeditaPacienteComponent,
     ReputacionComponent,
     ListarReputacionComponent,
-    CreaeditaReputacionComponent
+    CreaeditaReputacionComponent,
+    Reporte02Component
   ],
   imports: [
     CommonModule,

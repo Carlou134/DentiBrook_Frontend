@@ -25,6 +25,7 @@ import { PacienteComponent } from './paciente/paciente.component';
 import { CreaeditaPacienteComponent } from './paciente/creaedita-paciente/creaedita-paciente.component';
 import { ReputacionComponent } from './reputacion/reputacion.component';
 import { CreaeditaReputacionComponent } from './reputacion/creaedita-reputacion/creaedita-reputacion.component';
+import { Reporte02Component } from './reporte/reporte02/reporte02.component';
 
 
 
@@ -149,6 +150,9 @@ const routes: Routes = [
     children: [
       {
         path: 'reporte01', component: Reporte01Component
+      },
+      {
+        path: 'reporte02', component: Reporte02Component
       }
     ]
   }
