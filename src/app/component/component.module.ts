@@ -9,6 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,6 +19,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReporteComponent } from './reporte/reporte.component';
 import { Reporte01Component } from './reporte/reporte01/reporte01.component';
 import { NgChartsModule } from 'ng2-charts';
+import { OdontologoComponent } from './odontologo/odontologo.component';
+import { ListarOdontologoComponent } from './odontologo/listar-odontologo/listar-odontologo.component';
+import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { NgChartsModule } from 'ng2-charts';
     HomeComponent,
     LandingPageComponent,
     ReporteComponent,
-    Reporte01Component
+    Reporte01Component,
+    OdontologoComponent,
+    ListarOdontologoComponent,
+    CreaeditaOdontologoComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +49,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatButtonModule,
     MatIconModule,
     NgChartsModule,
+    MatCardModule
   ]
 })
 export class ComponentModule { }

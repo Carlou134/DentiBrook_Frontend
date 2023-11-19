@@ -19,6 +19,8 @@ import { CreaeditaRolesComponent } from './roles/creaedita-roles/creaedita-roles
 import { HomeComponent } from './home/home.component';
 import { ReporteComponent } from './reporte/reporte.component';
 import { Reporte01Component } from './reporte/reporte01/reporte01.component';
+import { OdontologoComponent } from './odontologo/odontologo.component';
+import { CreaeditaOdontologoComponent } from './odontologo/creaedita-odontologo/creaedita-odontologo.component';
 
 
 
@@ -35,6 +37,17 @@ const routes: Routes = [
       {
         path: 'reporte', component: ReporteEspecialidadComponent
       }
+    ]
+  },
+  {
+    path: 'odontologo', component: OdontologoComponent,
+    children: [
+      {
+        path: 'nuevo', component: CreaeditaOdontologoComponent
+      },
+      {
+        path: 'ediciones/:id', component: CreaeditaOdontologoComponent
+      },
     ]
   },
   {
